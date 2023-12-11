@@ -7,7 +7,7 @@ export default class Category {
     displayInfo(){
         console.log(`Id Kategori : ${this.categoryId}`)
         console.log(`Nama Kategori : ${this.categoryName} `)
-    }
+    } 
 
     static createCategory(CategoryId, CategoryName) {
         return new Category (categoryId, categoryName)
