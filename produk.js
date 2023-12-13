@@ -14,8 +14,6 @@ export default class Product {
         console.log(`Deskripsi produk : ${this.description}`)
     }
 
-    static createProduct (productId, productName,price,description){
-        return new Product(productId, productName, price, description)}
 
     updateProduct(newProductName, newPrice, newDescription){
         this.productName == newProductName !== undefined ? newProductName : this.productName
@@ -24,8 +22,25 @@ export default class Product {
         console.log('Detail produk berhasil di ubah.')
     }
 
-    static deleteProduct (product) {
+    deleteProduct (product) {
         console.log(`Produk ${product.productId} di hapus.`)
     }
 
+    addToCategory(category) {
+        this.categories.push(category);
+        category.addProduct(this);
+    }
+
+    removeProduct(product) {
+        this.products = this.products.filter(prod => prod.productId !== product.productId);
+    }
+
+    displayProducts() {
+        console.log(`Products in category '${this.categoryName}':`);
+        this.products.forEach(product => {
+            console.log(`- ${product.productName}`);
+        });
+    }
 }
+
+
